@@ -40,6 +40,41 @@ def academic_year(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+def delete_academic_year(request, academic_year_id):
+    if request.method == 'DELETE':
+        try:
+            academic_year_record = tbl_academicyear.objects.get(id=academic_year_id)
+            academic_year_record.delete()
+            return JsonResponse({'msg': 'Academic year deleted successfully'}, status=200)
+        except tbl_academicyear.DoesNotExist:
+            return JsonResponse({'error': 'Academic year not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+def update_academic_year(request, academic_year_id):
+    if request.method == 'POST':
+        try:
+            academic_year_record = tbl_academicyear.objects.get(id=academic_year_id)
+            from_date = request.POST.get('fromDate')
+            to_date = request.POST.get('toDate')
+            from_year = from_date.split('-')[0]
+            to_year = to_date.split('-')[0]
+            academicyear_name = f"{from_year} - {to_year}"
+
+            academic_year_record.academicyear_startdate = from_date
+            academic_year_record.academicyear_enddate = to_date
+            academic_year_record.academicyear_name = academicyear_name
+            academic_year_record.save()
+
+            return JsonResponse({'msg': 'Academic year updated successfully'}, status=200)
+        except tbl_academicyear.DoesNotExist:
+            return JsonResponse({'error': 'Academic year not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+
 def financial_year(request):
     if request.method == 'POST':
         from_date = request.POST.get('fromDate')
@@ -102,3 +137,4 @@ def university(request):
         return JsonResponse({'universityData': university_data})
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
+
