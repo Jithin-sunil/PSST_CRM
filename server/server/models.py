@@ -39,3 +39,7 @@ class tbl_user(models.Model):
     user_name = models.CharField(max_length=150)
     user_email = models.EmailField(max_length=150, unique=True)
     user_mobile = models.CharField(max_length=20)
+    user_password = models.CharField(max_length=128)
+
+class tbl_role(models.Model):
+    role_name = models.CharField(max_length=100)

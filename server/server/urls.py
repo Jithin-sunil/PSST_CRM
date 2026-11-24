@@ -20,4 +20,9 @@ urlpatterns = [
     path('users/', views.users),
     path('usersupdate/<int:user_id>/', views.update_user),
     path('usersdelete/<int:user_id>/', views.delete_user),
+
+    path('roles/', views.roles),
+    path('rolesupdate/<int:role_id>/', views.update_role),
+    path('rolesdelete/<int:role_id>/', views.delete_role),
+
 ]
