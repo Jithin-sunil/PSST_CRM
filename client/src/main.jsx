@@ -1,10 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom";
+import Navbar from './Admin/Components/Navbar/Navbar.jsx';
+import Sidebar from './Admin/Components/Sidebar/Sidebar.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Sidebar />
+
 )
