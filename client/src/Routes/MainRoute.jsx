@@ -1,11 +1,13 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import AdminRoute from './AdminRoute'
+import AdminLayout from '../Admin/AdminLayout/AdminLayout'
 
 const MainRoute = () => {
     return (
         <div>
             <Routes>
-                <Route path="admin/*" element={<Home />} />
-                <Route path="/" element={<About />} />
+                <Route path="admin/*" element={<AdminLayout />} />
             </Routes>
         </div>
     )
