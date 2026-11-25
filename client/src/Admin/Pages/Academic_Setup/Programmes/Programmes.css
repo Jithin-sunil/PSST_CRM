@@ -1,0 +1,180 @@
+.progPage {
+    padding: 30px;
+    background-color: #f4f7fc;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.progPage * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header: Title on left, Add button on right */
+.progHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.progHeader h2 {
+    color: #243F87;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.progHeader p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.progAddBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Form Card */
+.progFormCard {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.progRequiredNote {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.progFormCard label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.progFormCard input {
+    width: 45%;
+    padding: 11px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    font-size: 14px;
+    background-color: white;
+    color: #1e293b;
+}
+
+.progFormActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.progOutlineBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.progSaveBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    padding: 10px 32px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* List Card */
+.progListCard {
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.progListHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.progListHeader h3 {
+    color: #1e293b;
+    font-size: 18px;
+}
+
+.progSearchInput {
+    padding: 9px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    width: 220px;
+    font-size: 14px;
+}
+
+/* Table */
+.progTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.progTable thead {
+    background-color: #eef2f9;
+    color: #536b91;
+}
+
+.progTable th,
+.progTable td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.progTable th {
+    font-weight: 600;
+}
+
+.progTable tbody tr:hover {
+    background-color: #f8faff;
+}
+
+/* Action Buttons */
+.progEditBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.progDeleteBtn {
+    background-color: white;
+    color: #dc2626;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}

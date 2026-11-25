@@ -18,8 +18,8 @@ const Sidebar = () => {
         {
             title: 'ACADEMIC SETUP',
             items: [
-                { name: 'Academic Year', path: '/admin/academic-year' },
-                { name: 'Financial Year', path: '/admin/financial-year' },
+                { name: 'Academic Year', path: '/admin/academicyear' },
+                { name: 'Financial Year', path: '/admin/financialyear' },
                 { name: 'Universities', path: '/admin/universities' },
                 { name: 'Colleges', path: '/admin/colleges' },
                 { name: 'Programmes', path: '/admin/programmes' },
@@ -30,7 +30,7 @@ const Sidebar = () => {
             title: 'COURSE CATALOG',
             items: [
                 { name: 'Category', path: '/admin/category' },
-                { name: 'Our Technologies', path: '/admin/technologies' },
+                { name: 'Our Technologies', path: '/admin/technology' },
                 { name: 'Fees', path: '/admin/fees' }
             ]
         },
