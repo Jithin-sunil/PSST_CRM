@@ -25,4 +25,6 @@ urlpatterns = [
     path('rolesupdate/<int:role_id>/', views.update_role),
     path('rolesdelete/<int:role_id>/', views.delete_role),
 
+    
+
 ]

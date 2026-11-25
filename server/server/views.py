@@ -1,5 +1,6 @@
 from django.http import JsonResponse
-from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user
+from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user,tbl_role
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return JsonResponse({'msg':"Welcome to HomePage"})
@@ -42,7 +43,7 @@ def academic_year(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
+@csrf_exempt
 def delete_academic_year(request, academic_year_id):
     if request.method == 'DELETE':
         try:
@@ -54,6 +55,8 @@ def delete_academic_year(request, academic_year_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+@csrf_exempt
 def update_academic_year(request, academic_year_id):
     if request.method == 'POST':
         try:
@@ -76,7 +79,7 @@ def update_academic_year(request, academic_year_id):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 
-
+@csrf_exempt
 def financial_year(request):
     if request.method == 'POST':
         from_date = request.POST.get('fromDate')
@@ -112,6 +115,7 @@ def financial_year(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+@csrf_exempt
 def delete_financial_year(request, financial_year_id):
     if request.method == 'DELETE':
         try:
@@ -123,6 +127,8 @@ def delete_financial_year(request, financial_year_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+@csrf_exempt
 def update_financial_year(request, financial_year_id):
     if request.method == 'POST':
         try:
@@ -145,6 +151,7 @@ def update_financial_year(request, financial_year_id):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 
+@csrf_exempt
 def university(request):
     if request.method == 'POST':
         university_name = request.POST.get('universityName')
@@ -172,6 +179,7 @@ def university(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+@csrf_exempt
 def delete_university(request, university_id):
     if request.method == 'DELETE':
         try:
@@ -183,6 +191,7 @@ def delete_university(request, university_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+@csrf_exempt
 def update_university(request, university_id):
     if request.method == 'POST':
         try:
@@ -202,6 +211,8 @@ def update_university(request, university_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+@csrf_exempt
 def users(request):
     if request.method == 'POST':
         user_employeecode = request.POST.get('userEmployeecode')
@@ -227,13 +238,15 @@ def users(request):
     if request.method == 'GET':
         users_data = list(
             tbl_user.objects
-            .values('id', 'user_employeecode', 'user_name', 'user_email', 'user_mobile', 'user_password')
+            .values('id', 'user_employeecode', 'user_name', 'user_email', 'user_mobile')
             .order_by('user_name')
         )
         return JsonResponse({'usersData': users_data})
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+
+@csrf_exempt
 def delete_user(request, user_id):
     if request.method == 'DELETE':
         try:
@@ -245,7 +258,7 @@ def delete_user(request, user_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
+@csrf_exempt
 def update_user(request, user_id):
     if request.method == 'POST':
         try:
@@ -275,7 +288,7 @@ def update_user(request, user_id):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 
-
+@csrf_exempt
 def roles(request):
     if request.method == 'POST':
         role_name = request.POST.get('roleName', '').strip()
@@ -301,7 +314,7 @@ def roles(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
+@csrf_exempt
 def update_role(request, role_id):
     if request.method == 'POST':
         try:
@@ -326,7 +339,7 @@ def update_role(request, role_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
+@csrf_exempt
 def delete_role(request, role_id):
     if request.method == 'DELETE':
         try:
