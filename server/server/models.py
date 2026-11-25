@@ -27,6 +27,7 @@ class tbl_program(models.Model):
 
 class tbl_specialization(models.Model):
     specialization_name = models.CharField(max_length=100)
+    program = models.ForeignKey(tbl_program,on_delete=models.CASCADE)
 
 class tbl_category(models.Model):
     category_name = models.CharField(max_length=100)

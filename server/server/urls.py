@@ -25,6 +25,22 @@ urlpatterns = [
     path('rolesupdate/<int:role_id>/', views.update_role),
     path('rolesdelete/<int:role_id>/', views.delete_role),
 
+    path('programme/', views.programme),
+    path('programmedelete/<int:programme_id>/', views.delete_programme),
+    path('programmeupdate/<int:programme_id>/', views.update_programme),
+
+    path('specialization/', views.specialization),
+    path('specializationdelete/<int:specialization_id>/', views.delete_specialization),
+    path('specializationupdate/<int:specialization_id>/', views.update_specialization),
+
+    path('category/', views.category),
+    path('categorydelete/<int:category_id>/', views.delete_category),
+    path('categoryupdate/<int:category_id>/', views.update_category),
+
+    path('technology/', views.technology),
+    path('technologydelete/<int:technology_id>/', views.delete_technology),
+    path('technologyupdate/<int:technology_id>/', views.update_technology),
+
     
 
 ]
