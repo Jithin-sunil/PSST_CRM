@@ -5,53 +5,53 @@ const Category = () => {
     const [showForm, setShowForm] = useState(false);
 
     return (
-        <div className="coursePage">
+        <div className="categoryPage">
             {/* Header Section */}
-            <div className="courseHeader">
+            <div className="categoryHeader">
                 <div>
-                    <h2>Course</h2>
+                    <h2>category</h2>
                     <p>Manage records and associated workflows.</p>
                 </div>
 
-                <button className="courseAddBtn" onClick={() => setShowForm(true)}>
+                <button className="categoryAddBtn" onClick={() => setShowForm(true)}>
                     + Add New
                 </button>
             </div>
 
             {/* Form Section */}
             {showForm && (
-                <div className="courseFormCard">
-                    <p className="courseRequiredNote">Fields marked * are required.</p>
+                <div className="categoryFormCard">
+                    <p className="categoryRequiredNote">Fields marked * are required.</p>
 
-                    <label>Course Name *</label>
-                    <input type="text" placeholder="Course Name" />
+                    <label>category Name *</label>
+                    <input type="text" placeholder="category Name" />
 
-                    <div className="courseFormActions">
-                        <button className="courseOutlineBtn">Reset</button>
-                        <button className="courseOutlineBtn" onClick={() => setShowForm(false)}>
+                    <div className="categoryFormActions">
+                        <button className="categoryOutlineBtn">Reset</button>
+                        <button className="categoryOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
-                        <button className="courseSaveBtn">Save</button>
+                        <button className="categorySaveBtn">Save</button>
                     </div>
                 </div>
             )}
 
             {/* Listing Card Section */}
-            <div className="courseListCard">
-                <div className="courseListHeader">
-                    <h3>Course List</h3>
+            <div className="categoryListCard">
+                <div className="categoryListHeader">
+                    <h3>category List</h3>
                     <input
                         type="text"
-                        className="courseSearchInput"
-                        placeholder="Search course..."
+                        className="categorySearchInput"
+                        placeholder="Search category..."
                     />
                 </div>
 
-                <table className="courseTable">
+                <table className="categoryTable">
                     <thead>
                         <tr>
                             <th>Sl No</th>
-                            <th>Course</th>
+                            <th>category</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -61,16 +61,16 @@ const Category = () => {
                             <td>1</td>
                             <td>React</td>
                             <td>
-                                <button className="courseEditBtn">Edit</button>
-                                <button className="courseDeleteBtn">Delete</button>
+                                <button className="categoryEditBtn">Edit</button>
+                                <button className="categoryDeleteBtn">Delete</button>
                             </td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Python</td>
                             <td>
-                                <button className="courseEditBtn">Edit</button>
-                                <button className="courseDeleteBtn">Delete</button>
+                                <button className="categoryEditBtn">Edit</button>
+                                <button className="categoryDeleteBtn">Delete</button>
                             </td>
                         </tr>
                     </tbody>

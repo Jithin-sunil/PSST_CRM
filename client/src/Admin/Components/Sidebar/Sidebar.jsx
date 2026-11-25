@@ -48,7 +48,7 @@ const Sidebar = () => {
                 { name: 'Enquiries', path: '/admin/enquiries' },
                 { name: 'Admissions', path: '/admin/admissions' },
                 { name: 'Batches', path: '/admin/batches' },
-                { name: 'Daily Log', path: '/admin/daily-log' }
+                { name: 'Daily Log', path: '/admin/dailylog' }
             ]
         }
     ]
