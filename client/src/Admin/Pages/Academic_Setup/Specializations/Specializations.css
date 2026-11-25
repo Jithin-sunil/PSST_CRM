@@ -1,0 +1,199 @@
+.specPage {
+    padding: 30px;
+    background-color: #f4f7fc;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.specPage * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header: Title on left, Add button on right */
+.specHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.specHeader h2 {
+    color: #243F87;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.specHeader p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.specAddBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Form Card */
+.specFormCard {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.specRequiredNote {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* 2-Column Form Layout */
+.specFormGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.specFormGroup label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.specFormGroup input,
+.specFormGroup select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    font-size: 14px;
+    background-color: white;
+    color: #1e293b;
+}
+
+.specFormActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.specOutlineBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.specSaveBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    padding: 10px 32px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* List Card */
+.specListCard {
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.specListHeader {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.specListHeader h3 {
+    color: #1e293b;
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.specSearchInput {
+    padding: 9px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    width: 220px;
+    font-size: 14px;
+}
+
+.specFilterSelect {
+    padding: 9px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    font-size: 14px;
+    background-color: white;
+    color: #1e293b;
+}
+
+/* Table */
+.specTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.specTable thead {
+    background-color: #eef2f9;
+    color: #536b91;
+}
+
+.specTable th,
+.specTable td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.specTable th {
+    font-weight: 600;
+}
+
+.specTable tbody tr:hover {
+    background-color: #f8faff;
+}
+
+/* Action Buttons */
+.specEditBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.specDeleteBtn {
+    background-color: white;
+    color: #dc2626;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
