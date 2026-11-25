@@ -1,0 +1,185 @@
+.asfPage {
+    padding: 24px;
+    background-color: #f3f6fb;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0f172a;
+}
+
+.asfHeader {
+    margin-bottom: 16px;
+}
+
+.asfHeader h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.asfHeader p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+.asfBackBar {
+    margin-bottom: 16px;
+}
+
+.asfFormCard,
+.asfListCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.asfInfoCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 13.5px;
+    color: #475569;
+}
+
+.asfInfoCard strong {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.asfActionBar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14px;
+}
+
+.asfRequiredNote {
+    font-size: 12.5px;
+    color: #64748b;
+    margin: 0 0 18px;
+}
+
+.asfFormGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.asfFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.asfFormGroup label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.asfFormGroup input,
+.asfFormGroup select,
+.asfSearchInput,
+.asfFilterSelect {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #d8e0ea;
+    border-radius: 7px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #0f172a;
+    background-color: #ffffff;
+}
+
+.asfFormActions {
+    display: flex;
+    gap: 10px;
+}
+
+.asfSaveBtn {
+    background-color: #1d56d8;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.asfSaveBtn:hover {
+    background-color: #1746b3;
+}
+
+.asfOutlineBtn {
+    background: #ffffff;
+    border: 1px solid #d8e0ea;
+    border-radius: 7px;
+    padding: 9px 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+.asfListHeader {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.asfListHeader h3 {
+    margin: 0 6px 0 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.asfTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.asfTable th {
+    background-color: #eaeff5;
+    text-align: left;
+    padding: 13px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4f637d;
+}
+
+.asfTable td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.asfActionCell {
+    display: flex;
+    gap: 8px;
+}
+
+.asfDeleteBtn {
+    background: #ffffff;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #dc2626;
+    cursor: pointer;
+}

@@ -13,6 +13,10 @@ import Specializations from '../Admin/Pages/Academic_Setup/Specializations/Speci
 import Users from '../Admin/Pages/Access & Staff/Users/Users'
 import Roles from '../Admin/Pages/Access & Staff/Roles/Roles'
 import RoleMapping from '../Admin/Pages/Access & Staff/RoleMapping/RoleMapping'
+import Enquiries from '../Admin/Pages/StudentLifecycle/Enquiries/Enquiries'
+import Admissions from '../Admin/Pages/StudentLifecycle/Admissions/Admissions'
+import Batches from '../Admin/Pages/StudentLifecycle/Batches/Batches'
+import DailyLog from '../Admin/Pages/StudentLifecycle/DailyLog/DailyLog'
 
 const AdminRoute = () => {
     return (
@@ -20,7 +24,7 @@ const AdminRoute = () => {
             <Routes>
                 <Route path="dashboard" element={<Dashboard />} />
 z
-                {/* Academic setup */}
+                {/* access & staff*/}
                 <Route path="academicyear" element={<AcademicYear/>} />
                 <Route path="financialyear" element={<FinancialYear/>} />
                 <Route path="universities" element={<Universities/>} />
@@ -33,10 +37,18 @@ z
                 <Route path="category" element={<Category />} />
                 <Route path="technology" element={<Technology />} />
                 <Route path="fees" element={<Fees />} />
-
+                
+                {/* access & staff */}
                 <Route path="users" element={<Users />} />
                 <Route path="roles" element={<Roles />} />
-                <Route path="role-mapping" element={<RoleMapping />} />
+                <Route path="role-mapping" element={<RoleMapping/>} />
+
+                {/* student lifecycle */}
+                <Route path="enquiries" element={<Enquiries/>} />
+                <Route path="admissions" element={<Admissions/>} />
+                <Route path="batches" element={<Batches/>} />
+                <Route path="dailylog" element={<DailyLog/>} />
+
             </Routes>
         </div>
     )

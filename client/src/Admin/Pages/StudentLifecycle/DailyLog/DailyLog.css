@@ -1,0 +1,241 @@
+.dlgPage {
+    padding: 24px;
+    background-color: #f3f6fb;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0f172a;
+}
+
+.dlgHeader {
+    margin-bottom: 20px;
+}
+
+.dlgHeader h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.dlgHeader p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+.dlgFormCard,
+.dlgListCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.dlgRequiredNote {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #64748b;
+    margin: 0 0 18px;
+}
+
+.dlgFormGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.dlgFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dlgFullWidth {
+    margin-bottom: 18px;
+}
+
+.dlgFormGroup label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.dlgFormGroup input,
+.dlgFormGroup select,
+.dlgFormGroup textarea,
+.dlgSearchInput,
+.dlgDateFilter {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #d8e0ea;
+    border-radius: 7px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0f172a;
+    background-color: #ffffff;
+}
+
+.dlgFormGroup input::placeholder,
+.dlgFormGroup textarea::placeholder,
+.dlgSearchInput::placeholder {
+    color: #7c8798;
+    font-weight: 400;
+}
+
+.dlgHelperNote {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #64748b;
+    margin: 0 0 18px;
+}
+
+.dlgFormActions {
+    display: flex;
+    gap: 10px;
+}
+
+.dlgSaveBtn {
+    background-color: #1d56d8;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dlgSaveBtn:hover {
+    background-color: #1746b3;
+}
+
+.dlgOutlineBtn {
+    background: #ffffff;
+    border: 1px solid #d8e0ea;
+    border-radius: 7px;
+    padding: 9px 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+.dlgListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.dlgListLeft {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dlgListLeft h3 {
+    margin: 0 6px 0 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.dlgTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.dlgTable th {
+    background-color: #eaeff5;
+    text-align: left;
+    padding: 13px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4f637d;
+}
+
+.dlgTable td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0f172a;
+}
+
+.dlgProgressCell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 160px;
+}
+
+.dlgProgressTrack {
+    flex: 1;
+    height: 7px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.dlgProgressFill {
+    height: 100%;
+    background-color: #1d56d8;
+    border-radius: 999px;
+}
+
+.dlgProgressText {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+    min-width: 34px;
+    text-align: right;
+}
+
+.dlgFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+.dlgPagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dlgPageBtn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.dlgPageBtnActive {
+    background: #ffffff;
+    border: 1px solid #d8e0ea;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+}
