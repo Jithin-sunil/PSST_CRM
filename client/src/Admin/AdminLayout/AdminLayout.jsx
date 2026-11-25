@@ -5,7 +5,7 @@ import Navbar from '../Components/Navbar/Navbar'
 import './AdminLayout.css'
 import AdminRoute from '../../Routes/AdminRoute'
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
     return (
         <div className="admin-layout">
 
