@@ -1,9 +1,12 @@
 from django.http import JsonResponse
 from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return JsonResponse({'msg':"Welcome to HomePage"})
 
+
+@csrf_exempt
 def academic_year(request):
     if request.method == 'POST':
         from_date = request.POST.get('fromDate')
