@@ -10,6 +10,9 @@ import Universities from '../Admin/Pages/Academic_Setup/Universities/Universitie
 import Colleges from '../Admin/Pages/Academic_Setup/Colleges/Colleges'
 import Programmes from '../Admin/Pages/Academic_Setup/Programmes/Programmes'
 import Specializations from '../Admin/Pages/Academic_Setup/Specializations/Specializations'
+import Users from '../Admin/Pages/Access & Staff/Users/Users'
+import Roles from '../Admin/Pages/Access & Staff/Roles/Roles'
+import RoleMapping from '../Admin/Pages/Access & Staff/RoleMapping/RoleMapping'
 
 const AdminRoute = () => {
     return (
@@ -31,6 +34,9 @@ const AdminRoute = () => {
                 <Route path="technology" element={<Technology />} />
                 <Route path="fees" element={<Fees />} />
 
+                <Route path="users" element={<Users />} />
+                <Route path="roles" element={<Roles />} />
+                <Route path="role-mapping" element={<RoleMapping />} />
             </Routes>
         </div>
     )

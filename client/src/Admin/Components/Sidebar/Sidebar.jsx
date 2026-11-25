@@ -38,7 +38,8 @@ const Sidebar = () => {
             title: 'ACCESS & STAFF',
             items: [
                 { name: 'Users', path: '/admin/users' },
-                { name: 'Roles', path: '/admin/roles' }
+                { name: 'Roles', path: '/admin/roles' },
+                { name: 'Role Mapping', path: '/admin/role-mapping' },
             ]
         },
         {
