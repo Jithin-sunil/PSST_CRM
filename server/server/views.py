@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user
-from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return JsonResponse({'msg':"Welcome to HomePage"})
@@ -209,6 +208,7 @@ def users(request):
         user_name = request.POST.get('userName')
         user_email = request.POST.get('userEmail')
         user_mobile = request.POST.get('userMobile')
+        user_password = request.POST.get('userPassword')
 
         # Check for unique constraints
         if tbl_user.objects.filter(user_employeecode=user_employeecode).exists():
@@ -221,12 +221,13 @@ def users(request):
             user_name=user_name,
             user_email=user_email,
             user_mobile=user_mobile,
+            user_password=user_password
         )
         return JsonResponse({'msg': 'User created successfully'}, status=201)
     if request.method == 'GET':
         users_data = list(
             tbl_user.objects
-            .values('id', 'user_employeecode', 'user_name', 'user_email', 'user_mobile')
+            .values('id', 'user_employeecode', 'user_name', 'user_email', 'user_mobile', 'user_password')
             .order_by('user_name')
         )
         return JsonResponse({'usersData': users_data})
@@ -253,8 +254,8 @@ def update_user(request, user_id):
             user_name = request.POST.get('userName')
             user_email = request.POST.get('userEmail')
             user_mobile = request.POST.get('userMobile')
+            user_password = request.POST.get('userPassword')
 
-            # Check for unique constraints
             if tbl_user.objects.filter(user_employeecode=user_employeecode).exclude(id=user_id).exists():
                 return JsonResponse({'error': 'Employee code already exists'}, status=400)
             if tbl_user.objects.filter(user_email=user_email).exclude(id=user_id).exists():
@@ -264,10 +265,77 @@ def update_user(request, user_id):
             user_record.user_name = user_name
             user_record.user_email = user_email
             user_record.user_mobile = user_mobile
+            user_record.user_password = user_password
             user_record.save()
 
             return JsonResponse({'msg': 'User updated successfully'}, status=200)
         except tbl_user.DoesNotExist:
             return JsonResponse({'error': 'User not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+
+def roles(request):
+    if request.method == 'POST':
+        role_name = request.POST.get('roleName', '').strip()
+
+        if not role_name:
+            return JsonResponse({'error': 'Role name is required'}, status=400)
+
+        if tbl_role.objects.filter(role_name__iexact=role_name).exists():
+            return JsonResponse({'error': 'Role name already exists'}, status=400)
+
+        role_record = tbl_role.objects.create(
+            role_name=role_name,
+        )
+        return JsonResponse({'msg': 'Role created successfully'}, status=201)
+
+    if request.method == 'GET':
+        roles_data = list(
+            tbl_role.objects
+            .values('id', 'role_name')
+            .order_by('role_name')
+        )
+        return JsonResponse({'rolesData': roles_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+def update_role(request, role_id):
+    if request.method == 'POST':
+        try:
+            role_record = tbl_role.objects.get(id=role_id)
+            role_name = request.POST.get('roleName', '').strip()
+
+            if not role_name:
+                return JsonResponse({'error': 'Role name is required'}, status=400)
+
+            if tbl_role.objects.filter(
+                role_name__iexact=role_name
+            ).exclude(id=role_id).exists():
+                return JsonResponse({'error': 'Role name already exists'}, status=400)
+
+            role_record.role_name = role_name
+            role_record.save()
+
+            return JsonResponse({'msg': 'Role updated successfully'}, status=200)
+
+        except tbl_role.DoesNotExist:
+            return JsonResponse({'error': 'Role not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+def delete_role(request, role_id):
+    if request.method == 'DELETE':
+        try:
+            role_record = tbl_role.objects.get(id=role_id)
+            role_record.delete()
+
+            return JsonResponse({'msg': 'Role deleted successfully'}, status=200)
+
+        except tbl_role.DoesNotExist:
+            return JsonResponse({'error': 'Role not found'}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)

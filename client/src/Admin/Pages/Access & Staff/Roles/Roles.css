@@ -1,0 +1,222 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.rolesContainer {
+    padding: 30px;
+    background-color: #f4f7fc;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Header */
+.rolesPageHeader {
+    margin-bottom: 16px;
+}
+
+.rolesPageHeader h2 {
+    color: #1e293b;
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.rolesPageHeader p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Add New Button - Right Side */
+.rolesTopActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.rolesAddBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Form Section */
+.rolesFormSection {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.rolesRequiredNote {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.rolesFormGroup {
+    width: 45%;
+}
+
+.rolesFormGroup label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.rolesFormGroup input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+.rolesFormGroup input:focus {
+    border-color: #2557d6;
+}
+
+/* Form Buttons */
+.rolesFormActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.rolesOutlineBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    padding: 14px 40px;
+    border: 1px solid #d8e0ef;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.rolesSaveBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Roles List Card */
+.rolesListCard {
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.rolesListHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.rolesListHeader h3 {
+    color: #1e293b;
+    font-size: 18px;
+}
+
+.rolesSearchInput {
+    padding: 12px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    width: 235px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Roles Table */
+.rolesTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.rolesTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.rolesTable thead {
+    background-color: #eef2f9;
+    color: #536b91;
+}
+
+.rolesTable th,
+.rolesTable td {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.rolesTable th {
+    font-weight: 600;
+}
+
+.rolesTable tbody tr:hover {
+    background-color: #f8faff;
+}
+
+/* Edit Button */
+.rolesEditBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Delete Button */
+.rolesDeleteBtn {
+    background-color: white;
+    color: #dc2626;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .rolesContainer {
+        padding: 15px;
+    }
+
+    .rolesFormGroup {
+        width: 100%;
+    }
+
+    .rolesListHeader {
+        flex-wrap: wrap;
+    }
+
+    .rolesSearchInput {
+        width: 100%;
+    }
+
+    .rolesTable {
+        min-width: 550px;
+    }
+}

@@ -1,0 +1,338 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.mappingContainer {
+    padding: 30px;
+    background-color: #f4f7fc;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Header */
+.mappingPageHeader {
+    margin-bottom: 20px;
+}
+
+.mappingPageHeader h2 {
+    color: #1e293b;
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.mappingPageHeader p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Add New Button */
+.mappingTopActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.mappingAddBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Form Card */
+.mappingFormSection {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.mappingRequiredNote {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+/* User Dropdown */
+.mappingUserGroup {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.mappingUserGroup label,
+.mappingSectionGroup > label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.mappingUserGroup select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    font-size: 14px;
+    background-color: white;
+    color: #1e293b;
+}
+
+/* Section Groups */
+.mappingSectionGroup {
+    margin-bottom: 20px;
+}
+
+/* Select Roles Box */
+.mappingRoleBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 16px;
+    border: 1px solid #d8e0ef;
+    border-radius: 9px;
+}
+
+/* Accessible Screens Box */
+.mappingScreensBox {
+    border: 1px solid #d8e0ef;
+    border-radius: 9px;
+    padding: 16px 14px;
+}
+
+/* Individual Screen Group */
+.mappingScreenGroup {
+    margin-bottom: 17px;
+}
+
+.mappingScreenGroup:last-child {
+    margin-bottom: 0;
+}
+
+.mappingScreenGroup h4 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+/* Checkbox Grid */
+.mappingScreenGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 20px;
+}
+
+.mappingCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.mappingCheckbox input {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    accent-color: #2557d6;
+}
+
+/* Form Buttons */
+.mappingFormActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.mappingOutlineBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    padding: 14px 35px;
+    border: 1px solid #d8e0ef;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.mappingSaveBtn {
+    background-color: #2557d6;
+    color: white;
+    font-weight: 600;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* List Card */
+.mappingListCard {
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+/* List Header */
+.mappingListHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.mappingListHeader h3 {
+    color: #1e293b;
+    font-size: 18px;
+}
+
+.mappingSearchInput {
+    padding: 12px 14px;
+    border: 1px solid #d8e0ef;
+    border-radius: 7px;
+    width: 260px;
+    font-size: 14px;
+}
+
+/* Mapping Table */
+.mappingTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.mappingTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.mappingTable thead {
+    background-color: #eef2f9;
+    color: #536b91;
+}
+
+.mappingTable th,
+.mappingTable td {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mappingTable th {
+    font-weight: 600;
+}
+
+.mappingTable tbody tr:hover {
+    background-color: #f8faff;
+}
+
+.mappingScreenText {
+    min-width: 450px;
+    max-width: 500px;
+    line-height: 16px;
+}
+
+/* Edit Button */
+.mappingEditBtn {
+    background-color: white;
+    color: #1e293b;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Delete Button */
+.mappingDeleteBtn {
+    background-color: white;
+    color: #dc2626;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.mappingPagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.mappingPagination div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mappingPagination button {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 9px 12px;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.mappingPagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .mappingContainer {
+        padding: 15px;
+    }
+
+    .mappingUserGroup {
+        width: 100%;
+    }
+
+    .mappingRoleBox,
+    .mappingScreenGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mappingListHeader {
+        flex-wrap: wrap;
+    }
+
+    .mappingSearchInput {
+        width: 100%;
+    }
+
+    .mappingPagination {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .mappingFormActions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .mappingRoleBox,
+    .mappingScreenGrid {
+        grid-template-columns: 1fr;
+    }
+}
