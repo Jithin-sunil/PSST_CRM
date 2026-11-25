@@ -19,7 +19,7 @@ const AdminRoute = () => {
         <div>
             <Routes>
                 <Route path="dashboard" element={<Dashboard />} />
-
+z
                 {/* Academic setup */}
                 <Route path="academicyear" element={<AcademicYear/>} />
                 <Route path="financialyear" element={<FinancialYear/>} />
