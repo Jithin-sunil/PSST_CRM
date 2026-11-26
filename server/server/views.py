@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user,tbl_role
+from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user,tbl_role, tbl_program,tbl_specialization,tbl_category,tbl_technology
 from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
@@ -350,5 +350,254 @@ def delete_role(request, role_id):
 
         except tbl_role.DoesNotExist:
             return JsonResponse({'error': 'Role not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+
+# PROGRAMME
+
+@csrf_exempt
+def programme(request):
+    if request.method == 'POST':
+        programme_name = request.POST.get('ProgrammeName')
+
+        programme_record_exists = tbl_program.objects.filter(program_name=programme_name,).exists()
+
+        if programme_record_exists:
+            return JsonResponse({'error': 'Programme name already exists',}, status=400)
+
+        programme_record = tbl_program.objects.create(program_name=programme_name,)
+
+        return JsonResponse({'msg': 'Programme created successfully',}, status=201)
+
+    if request.method == 'GET':
+        programme_data = list(tbl_program.objects.values('id', 'program_name').order_by('program_name'))
+
+        return JsonResponse({'ProgramData': programme_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def delete_programme(request, programme_id):
+    if request.method == 'DELETE':
+        try:
+            programme_record = tbl_program.objects.get(id=programme_id)
+            programme_record.delete()
+            return JsonResponse({'msg': 'Programme deleted successfully'}, status=200)
+
+        except tbl_program.DoesNotExist:
+            return JsonResponse({'error': 'Programme not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def update_programme(request, programme_id):
+    if request.method == 'POST':
+        try:
+            programme_record = tbl_program.objects.get(id=programme_id)
+
+            programme_name = request.POST.get('ProgrammeName')
+
+            programme_record_exists = tbl_program.objects.filter(program_name=programme_name,).exclude(id=programme_id).exists()
+
+            if programme_record_exists:
+                return JsonResponse({'error': 'Programme name already exists',}, status=400)
+
+            programme_record.program_name = programme_name
+            programme_record.save()
+
+            return JsonResponse({'msg': 'Programme updated successfully'}, status=200)
+
+        except tbl_program.DoesNotExist:
+            return JsonResponse({'error': 'Programme not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+# SPECIALIZATION
+
+@csrf_exempt
+def specialization(request):
+    if request.method == 'POST':
+        specialization_name = request.POST.get('SpecializationName')
+        program = tbl_program.objects.get(id=request.POST.get('SelectProgram'))
+
+        specialization_record_exists = tbl_specialization.objects.filter(specialization_name=specialization_name,program=program,).exists()
+
+        if specialization_record_exists:
+            return JsonResponse({'error': 'Specialization already exists',}, status=400)
+
+        specialization_record = tbl_specialization.objects.create(specialization_name=specialization_name,program=program,)
+
+        return JsonResponse({'msg': 'Specialization created successfully',}, status=201)
+
+    if request.method == 'GET':
+        specialization_data = list(tbl_specialization.objects.values('id', 'specialization_name', 'program_id', 'program__program_name').order_by('specialization_name'))
+        return JsonResponse({'SpecializationData': specialization_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def delete_specialization(request, specialization_id):
+    if request.method == 'DELETE':
+        try:
+            specialization_record = tbl_specialization.objects.get(id=specialization_id)
+            specialization_record.delete()
+            return JsonResponse({'msg': 'Specialization deleted successfully'}, status=200)
+
+        except tbl_specialization.DoesNotExist:
+            return JsonResponse({'error': 'Specialization not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def update_specialization(request, specialization_id):
+    if request.method == 'POST':
+        try:
+            specialization_record = tbl_specialization.objects.get(id=specialization_id)
+
+            specialization_name = request.POST.get('SpecializationName')
+            program = tbl_program.objects.get(id=request.POST.get('SelectProgram'))
+
+            specialization_record_exists = tbl_specialization.objects.filter(specialization_name=specialization_name,program=program,).exclude(id=specialization_id).exists()
+
+            if specialization_record_exists:
+                return JsonResponse({'error': 'Specialization already exists',}, status=400)
+
+            specialization_record.specialization_name = specialization_name
+            specialization_record.program = program
+            specialization_record.save()
+
+            return JsonResponse({'msg': 'Specialization updated successfully'}, status=200)
+
+        except tbl_specialization.DoesNotExist:
+            return JsonResponse({'error': 'Specialization not found'}, status=404)
+
+        except tbl_program.DoesNotExist:
+            return JsonResponse({'error': 'Programme not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+# CATEGORY
+
+@csrf_exempt
+def category(request):
+    if request.method == 'POST':
+        category_name = request.POST.get('CategoryName')
+
+        category_record_exists = tbl_category.objects.filter(category_name=category_name,).exists()
+
+        if category_record_exists:
+            return JsonResponse({'error': 'Category already exists',}, status=400)
+
+        category_record = tbl_category.objects.create(category_name=category_name,)
+
+        return JsonResponse({'msg': 'Category created successfully',}, status=201)
+
+    if request.method == 'GET':
+        category_data = list(tbl_category.objects.values('id', 'category_name').order_by('category_name'))
+        return JsonResponse({'CategoryData': category_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def delete_category(request, category_id):
+    if request.method == 'DELETE':
+        try:
+            category_record = tbl_category.objects.get(id=category_id)
+            category_record.delete()
+            return JsonResponse({'msg': 'Category deleted successfully'}, status=200)
+
+        except tbl_category.DoesNotExist:
+            return JsonResponse({'error': 'Category not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def update_category(request, category_id):
+    if request.method == 'POST':
+        try:
+            category_record = tbl_category.objects.get(id=category_id)
+            category_name = request.POST.get('CategoryName')
+
+            category_record_exists = tbl_category.objects.filter(category_name=category_name,).exclude(id=category_id).exists()
+
+            if category_record_exists:
+                return JsonResponse({'error': 'Category already exists',}, status=400)
+
+            category_record.category_name = category_name
+            category_record.save()
+
+            return JsonResponse({'msg': 'Category updated successfully',}, status=200)
+
+        except tbl_category.DoesNotExist:
+            return JsonResponse({'error': 'Category not found',}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+# TECHNOLOGY
+
+@csrf_exempt
+def technology(request):
+    if request.method == 'POST':
+        technology_name = request.POST.get('TechnologyName')
+
+        technology_record_exists = tbl_technology.objects.filter(technology_name=technology_name,).exists()
+
+        if technology_record_exists:
+            return JsonResponse({'error': 'Technology already exists',}, status=400)
+
+        technology_record = tbl_technology.objects.create(technology_name=technology_name,)
+
+        return JsonResponse({'msg': 'Technology created successfully',}, status=201)
+
+    if request.method == 'GET':
+        technology_data = list(tbl_technology.objects.values('id', 'technology_name').order_by('technology_name'))
+        return JsonResponse({'TechnologyData': technology_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def delete_technology(request, technology_id):
+    if request.method == 'DELETE':
+        try:
+            technology_record = tbl_technology.objects.get(id=technology_id)
+            technology_record.delete()
+            return JsonResponse({'msg': 'Technology deleted successfully'}, status=200)
+
+        except tbl_technology.DoesNotExist:
+            return JsonResponse({'error': 'Technology not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def update_technology(request, technology_id):
+    if request.method == 'POST':
+        try:
+            technology_record = tbl_technology.objects.get(id=technology_id)
+            technology_name = request.POST.get('TechnologyName')
+
+            technology_record_exists = tbl_technology.objects.filter(technology_name=technology_name,).exclude(id=technology_id).exists()
+
+            if technology_record_exists:
+                return JsonResponse({'error': 'Technology already exists',}, status=400)
+
+            technology_record.technology_name = technology_name
+            technology_record.save()
+
+            return JsonResponse({'msg': 'Technology updated successfully',}, status=200)
+
+        except tbl_technology.DoesNotExist:
+            return JsonResponse({'error': 'Technology not found',}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
