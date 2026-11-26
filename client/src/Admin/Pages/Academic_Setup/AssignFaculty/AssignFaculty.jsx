@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AssignFaculty.css';
 
-const AssignFaculty = ({ batch, onBack }) => {
+const AssignFaculty = ({ batch }) => {
+    const navigate = useNavigate();
     const [showForm, setShowForm] = useState(false);
 
     return (
@@ -14,7 +16,7 @@ const AssignFaculty = ({ batch, onBack }) => {
             </div>
 
             <div className="asfBackBar">
-                <button type="button" className="asfOutlineBtn" onClick={onBack}>
+                <button type="button" className="asfOutlineBtn" onClick={() => navigate('/admin/batches')} >
                     ← Back to Batches
                 </button>
             </div>
@@ -27,20 +29,12 @@ const AssignFaculty = ({ batch, onBack }) => {
                     <div className="asfFormGrid">
                         <div className="asfFormGroup">
                             <label>Batch ID</label>
-                            <input
-                                type="text"
-                                defaultValue={batch?.batchId || 'BAT-2026-0001'}
-                                readOnly
-                            />
+                            <input type="text" defaultValue={batch?.batchId || 'BAT-2026-0001'} readOnly />
                         </div>
 
                         <div className="asfFormGroup">
                             <label>Batch Type</label>
-                            <input
-                                type="text"
-                                defaultValue={batch?.batchType || 'Individual'}
-                                readOnly
-                            />
+                            <input type="text" defaultValue={batch?.batchType || 'Individual'} readOnly />
                         </div>
                     </div>
 
@@ -79,11 +73,7 @@ const AssignFaculty = ({ batch, onBack }) => {
 
             {/* Add Button Above Table Layout */}
             <div className="asfActionBar">
-                <button
-                    type="button"
-                    className="asfSaveBtn"
-                    onClick={() => setShowForm(true)}
-                >
+                <button type="button" className="asfSaveBtn" onClick={() => setShowForm(true)}>
                     + Add New
                 </button>
             </div>
@@ -92,11 +82,7 @@ const AssignFaculty = ({ batch, onBack }) => {
                 <div className="asfListHeader">
                     <h3>Assign Faculty List</h3>
 
-                    <input
-                        type="text"
-                        className="asfSearchInput"
-                        placeholder="Search assign faculty..."
-                    />
+                    <input type="text" className="asfSearchInput" placeholder="Search assign faculty..." />
 
                     <select className="asfFilterSelect" defaultValue="">
                         <option value="">All Batch Type</option>

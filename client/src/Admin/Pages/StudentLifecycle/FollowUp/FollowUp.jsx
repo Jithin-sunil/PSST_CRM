@@ -47,11 +47,7 @@ const FollowUp = ({ enquiryName, onBack }) => {
                         <button type="button" className="fupOutlineBtn">
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="fupOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="fupOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
                         <button type="button" className="fupSaveBtn">
@@ -74,11 +70,7 @@ const FollowUp = ({ enquiryName, onBack }) => {
                         />
                     </div>
 
-                    <button
-                        type="button"
-                        className="fupAddBtn"
-                        onClick={() => setShowForm(true)}
-                    >
+                    <button type="button" className="fupAddBtn" onClick={() => setShowForm(true)}>
                         + Add New
                     </button>
                 </div>

@@ -1,0 +1,319 @@
+.bklPage {
+    padding: 24px;
+    background-color: #f4f7fb;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+}
+
+.bklHeader h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.bklHeader p {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.bklBackRow {
+    margin-top: 18px;
+}
+
+.bklBackBtn {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.bklBackBtn:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.bklContextBanner {
+    margin-top: 16px;
+    background-color: #eef3fb;
+    border: 1px solid #dbe6f6;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 14px;
+    color: #334155;
+}
+
+.bklContextBanner strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* Add / Edit Card */
+.bklFormCard {
+    margin-top: 16px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.bklFormCard h3 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.bklFormGrid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.bklFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 220px;
+    flex: 1;
+}
+
+.bklFormGroup label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.bklFormGroup input,
+.bklFormGroup select {
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #0f172a;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.bklFormGroup input:focus,
+.bklFormGroup select:focus {
+    border-color: #2563eb;
+}
+
+.bklFormActions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Main List Card */
+.bklListCard {
+    margin-top: 18px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.bklListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.bklFilterBar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.bklFilterBar h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.bklSearchInput {
+    height: 38px;
+    width: 230px;
+    padding: 0 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+}
+
+.bklSearchInput::placeholder {
+    color: #94a3b8;
+}
+
+.bklSearchInput:focus {
+    border-color: #2563eb;
+}
+
+.bklFilterSelect {
+    height: 38px;
+    padding: 0 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+.bklPrimaryBtn {
+    background-color: #1d56d8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.bklPrimaryBtn:hover {
+    background-color: #1e40af;
+}
+
+/* Table */
+.bklTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.bklTable thead tr {
+    background-color: #e6ecf8;
+}
+
+.bklTable th {
+    padding: 13px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.bklTable td {
+    padding: 15px 16px;
+    font-size: 14px;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.bklEmptyRow {
+    text-align: center;
+    color: #64748b;
+    padding: 24px 16px;
+}
+
+/* Status Badges */
+.bklStatusBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bklStatusPending {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.bklStatusProgress {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.bklStatusCompleted {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+/* Action Buttons */
+.bklActionCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bklOutlineBtn {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 6px 13px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.bklOutlineBtn:hover {
+    background-color: #f8fafc;
+}
+
+.bklDeleteBtn {
+    background-color: #ffffff;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 6px 13px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #dc2626;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.bklDeleteBtn:hover {
+    background-color: #fef2f2;
+}
+
+/* Footer & Pagination */
+.bklFooter {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.bklPagination {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bklPageBtn {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    cursor: not-allowed;
+}

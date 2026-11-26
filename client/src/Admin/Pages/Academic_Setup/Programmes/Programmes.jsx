@@ -13,11 +13,7 @@ const Programmes = () => {
                     <p>Manage records and associated workflows.</p>
                 </div>
 
-                <button
-                    type="button"
-                    className="progAddBtn"
-                    onClick={() => setShowForm(true)}
-                >
+                <button type="button" className="progAddBtn" onClick={() => setShowForm(true)}>
                     + Add New
                 </button>
             </div>
@@ -34,11 +30,7 @@ const Programmes = () => {
                         <button type="button" className="progOutlineBtn">
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="progOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="progOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
                         <button type="button" className="progSaveBtn">
@@ -52,11 +44,7 @@ const Programmes = () => {
             <div className="progListCard">
                 <div className="progListHeader">
                     <h3>Programmes List</h3>
-                    <input
-                        type="text"
-                        className="progSearchInput"
-                        placeholder="Search programmes..."
-                    />
+                    <input type="text" className="progSearchInput" placeholder="Search programmes..."/>
                 </div>
 
                 <table className="progTable">

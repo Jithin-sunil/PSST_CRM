@@ -39,7 +39,7 @@ const Sidebar = () => {
             items: [
                 { name: 'Users', path: '/admin/users' },
                 { name: 'Roles', path: '/admin/roles' },
-                { name: 'Role Mapping', path: '/admin/role-mapping' },
+                { name: 'Role Mapping', path: '/admin/rolemapping' },
             ]
         },
         {

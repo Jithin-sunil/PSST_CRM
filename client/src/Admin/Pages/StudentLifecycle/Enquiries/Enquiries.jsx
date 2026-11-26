@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Enquiries.css';
-import FollowUp from './FollowUp';
+import FollowUp from '../FollowUp/FollowUp';
 
 const Enquiries = () => {
     const navigate = useNavigate();
@@ -27,11 +27,7 @@ const Enquiries = () => {
                     <p>Manage records and associated workflows.</p>
                 </div>
 
-                <button
-                    type="button"
-                    className="enqAddBtn"
-                    onClick={() => setShowForm(true)}
-                >
+                <button type="button" className="enqAddBtn" onClick={() => setShowForm(true)}>
                     + Add New
                 </button>
             </div>
@@ -83,35 +79,17 @@ const Enquiries = () => {
                         <label>Education Type</label>
                         <div className="enqRadioBox">
                             <label className="enqRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="College"
-                                    checked={educationType === 'College'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="College" checked={educationType === 'College'} onChange={(e) => setEducationType(e.target.value)}/>
                                 College
                             </label>
 
                             <label className="enqRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="School"
-                                    checked={educationType === 'School'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="School" checked={educationType === 'School'} onChange={(e) => setEducationType(e.target.value)}/>
                                 School
                             </label>
 
                             <label className="enqRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="Other"
-                                    checked={educationType === 'Other'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="Other" checked={educationType === 'Other'} onChange={(e) => setEducationType(e.target.value)}/>
                                 Other
                             </label>
                         </div>
@@ -173,18 +151,10 @@ const Enquiries = () => {
                     )}
 
                     <div className="enqFormActions">
-                        <button
-                            type="button"
-                            className="enqOutlineBtn"
-                            onClick={() => setEducationType('College')}
-                        >
+                        <button type="button" className="enqOutlineBtn" onClick={() => setEducationType('College')}>
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="enqOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="enqOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
                         <button type="button" className="enqSaveBtn">
@@ -253,18 +223,10 @@ const Enquiries = () => {
                                 <button type="button" className="enqDeleteBtn">
                                     Delete
                                 </button>
-                                <button
-                                    type="button"
-                                    className="enqActionBtn"
-                                    onClick={() => navigate('/admissions')}
-                                >
+                                <button type="button" className="enqActionBtn" onClick={() => navigate('/admissions')}>
                                     Convert to Admission
                                 </button>
-                                <button
-                                    type="button"
-                                    className="enqActionBtn"
-                                    onClick={() => setFollowUpEnquiry('Nikhil Ravi')}
-                                >
+                                <button type="button" className="enqActionBtn" onClick={() => setFollowUpEnquiry('Nikhil Ravi')}>
                                     Follow Up
                                 </button>
                             </td>
@@ -284,18 +246,10 @@ const Enquiries = () => {
                                 <button type="button" className="enqDeleteBtn">
                                     Delete
                                 </button>
-                                <button
-                                    type="button"
-                                    className="enqActionBtn"
-                                    onClick={() => navigate('/admissions')}
-                                >
+                                <button type="button" className="enqActionBtn" onClick={() => navigate('/admissions')}>
                                     Convert to Admission
                                 </button>
-                                <button
-                                    type="button"
-                                    className="enqActionBtn"
-                                    onClick={() => setFollowUpEnquiry('Sana Mohammed')}
-                                >
+                                <button type="button" className="enqActionBtn" onClick={() => setFollowUpEnquiry('Sana Mohammed')}>
                                     Follow Up
                                 </button>
                             </td>

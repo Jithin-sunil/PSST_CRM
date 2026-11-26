@@ -40,11 +40,7 @@ const Technology = () => {
             <div className="techListCard">
                 <div className="techListHeader">
                     <h3>Technology List</h3>
-                    <input
-                        type="text"
-                        className="techSearchInput"
-                        placeholder="Search technology..."
-                    />
+                    <input type="text" className="techSearchInput" placeholder="Search technology..."/>
                 </div>
 
                 <table className="techTable">

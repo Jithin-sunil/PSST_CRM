@@ -1,0 +1,402 @@
+
+/* Main Page */
+.sprintPage {
+    padding: 25px 32px;
+    background-color: #f4f7fd;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #172b4d;
+    box-sizing: border-box;
+}
+
+/* Page Header */
+.sprintHeader {
+    margin-bottom: 20px;
+}
+
+.sprintHeader h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    color: #172b4d;
+}
+
+.sprintHeader p {
+    font-size: 14px;
+    color: #7183a3;
+    margin: 0;
+}
+
+/* Back Button */
+.sprintBackBtn {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    padding: 12px 16px;
+    color: #172b4d;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.sprintBackBtn:hover {
+    background-color: #edf2fc;
+}
+
+/* Sprint Form */
+.sprintForm {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 5px rgba(30, 60, 100, 0.04);
+}
+
+.sprintNote {
+    color: #7183a3;
+    font-size: 13px;
+    margin: 0 0 20px;
+}
+
+/* Form Grid */
+.sprintGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 18px;
+}
+
+/* Form Groups */
+.sprintGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.sprintGroup label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #172b4d;
+}
+
+.sprintGroup input[type="text"],
+.sprintGroup input[type="date"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    font-size: 14px;
+    color: #172b4d;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.sprintGroup input:focus {
+    border-color: #3155df;
+}
+
+/* Backlog Selection */
+.sprintBacklogs {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    min-height: 47px;
+    padding: 10px 16px;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    box-sizing: border-box;
+}
+
+.sprintBacklogs label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sprintBacklogs input {
+    cursor: pointer;
+}
+
+/* Form Action Buttons */
+.sprintActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.sprintCancelBtn,
+.sprintSaveBtn {
+    min-width: 122px;
+    height: 44px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sprintCancelBtn {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    color: #172b4d;
+}
+
+.sprintCancelBtn:hover {
+    background-color: #f3f6fc;
+}
+
+.sprintSaveBtn {
+    background-color: #3155df;
+    border: 1px solid #3155df;
+    color: white;
+}
+
+.sprintSaveBtn:hover {
+    background-color: #2445c5;
+}
+
+/* Project Information */
+.sprintInfo {
+    background-color: #f4f7ff;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    padding: 12px;
+    margin: 20px 0 16px;
+    font-size: 14px;
+    color: #637899;
+}
+
+.sprintInfo strong {
+    color: #425b83;
+}
+
+/* Sprint List Container */
+.sprintList {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(30, 60, 100, 0.04);
+    overflow-x: auto;
+}
+
+/* List Header */
+.sprintListHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.sprintListHeader h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #172b4d;
+    margin: 0 10px 0 0;
+    white-space: nowrap;
+}
+
+/* Search Input */
+.sprintSearch {
+    width: 220px;
+    height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.sprintSearch:focus {
+    border-color: #3155df;
+}
+
+/* Status Filter */
+.sprintFilter {
+    width: 118px;
+    height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #dce5f5;
+    border-radius: 9px;
+    font-size: 13px;
+    color: #172b4d;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Add New Button */
+.sprintAddBtn {
+    margin-left: auto;
+    background-color: #3155df;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 17px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.sprintAddBtn:hover {
+    background-color: #2445c5;
+}
+
+/* Sprint Table */
+.sprintTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.sprintTable thead {
+    background-color: #edf2fc;
+}
+
+.sprintTable th {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #7183a3;
+    white-space: nowrap;
+}
+
+.sprintTable td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf1f8;
+    font-size: 13px;
+    color: #425574;
+}
+
+.sprintTable tbody tr:hover {
+    background-color: #f8faff;
+}
+
+/* Table Buttons */
+.sprintSmallBtn {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    border-radius: 6px;
+    padding: 7px 12px;
+    margin-right: 6px;
+    font-size: 12px;
+    color: #3155df;
+    cursor: pointer;
+}
+
+.sprintSmallBtn:hover {
+    background-color: #edf2fc;
+}
+
+/* Status */
+.sprintStatus {
+    background-color: #fff4d9;
+    color: #b7791f;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Table Footer */
+.sprintFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #7183a3;
+}
+
+.sprintFooter div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sprintFooter button {
+    background-color: white;
+    border: 1px solid #dce5f5;
+    border-radius: 6px;
+    padding: 7px 12px;
+    color: #7183a3;
+    cursor: pointer;
+}
+
+.sprintFooter button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .sprintPage {
+        padding: 18px;
+    }
+
+    .sprintGrid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .sprintListHeader {
+        flex-wrap: wrap;
+    }
+
+    .sprintListHeader h3 {
+        width: 100%;
+    }
+
+    .sprintSearch {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .sprintAddBtn {
+        margin-left: auto;
+    }
+
+    .sprintBacklogs {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .sprintFooter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .sprintActions {
+        flex-wrap: wrap;
+    }
+
+    .sprintCancelBtn,
+    .sprintSaveBtn {
+        flex: 1;
+        min-width: 90px;
+    }
+
+    .sprintSearch {
+        width: 100%;
+        flex: auto;
+    }
+
+    .sprintFilter {
+        flex: 1;
+    }
+}

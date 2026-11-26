@@ -13,11 +13,7 @@ const Colleges = () => {
                     <p>Manage records and associated workflows.</p>
                 </div>
 
-                <button
-                    type="button"
-                    className="colAddBtn"
-                    onClick={() => setShowForm(true)}
-                >
+                <button type="button" className="colAddBtn" onClick={() => setShowForm(true)}>
                     + Add New
                 </button>
             </div>
@@ -66,11 +62,7 @@ const Colleges = () => {
                         <button type="button" className="colOutlineBtn">
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="colOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="colOutlineBtn" onClick={() => setShowForm(false)} >
                             Cancel
                         </button>
                         <button type="button" className="colSaveBtn">
@@ -85,10 +77,7 @@ const Colleges = () => {
                 <div className="colListHeader">
                     <h3>Colleges List</h3>
 
-                    <input
-                        type="text"
-                        className="colSearchInput"
-                        placeholder="Search colleges..."
+                    <input type="text" className="colSearchInput" placeholder="Search colleges..."
                     />
 
                     <select className="colFilterSelect" defaultValue="">

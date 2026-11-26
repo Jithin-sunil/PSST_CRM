@@ -1,8 +1,38 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './AcademicYear.css';
 
 const AcademicYear = () => {
     const [showForm, setShowForm] = useState(false);
+    const [fromDate, setFromDate] = useState('');
+    const [toDate, setToDate] = useState('');
+
+
+    const resetForm = () => {
+    setFromDate('');
+    setToDate('');
+    };
+
+    const handleSave = async () => {
+    try {
+        const formData = new FormData();
+
+        formData.append('fromDate', fromDate);
+        formData.append('toDate', toDate);
+
+        const response = await axios.post('http://127.0.0.1:8000/academic_year/',formData);
+
+        console.log(response.data.msg);
+
+        resetForm();
+        setShowForm(false);
+        getAcademicYear();
+
+    } catch (error) {
+        console.log(error);
+        alert(error.response?.data?.error || 'Something went wrong');
+    }
+};
 
     return (
         <div className="ayPage">
@@ -40,7 +70,7 @@ const AcademicYear = () => {
                         <button className="ayOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
-                        <button className="aySaveBtn">Save</button>
+                        <button className="aySaveBtn" onClick={handleSave}>Save</button>
                     </div>
                 </div>
             )}
@@ -49,11 +79,7 @@ const AcademicYear = () => {
             <div className="ayListCard">
                 <div className="ayListHeader">
                     <h3>Academic Year List</h3>
-                    <input
-                        type="text"
-                        className="aySearchInput"
-                        placeholder="Search academic year..."
-                    />
+                    <input type="text" className="aySearchInput" placeholder="Search academic year..."/>
                 </div>
 
                 <table className="ayTable">

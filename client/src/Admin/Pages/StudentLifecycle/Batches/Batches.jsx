@@ -1,35 +1,11 @@
-import React, { useState } from 'react';
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Batches.css';
-import AssignFaculty from './AssignFaculty/AssignFaculty';
-import ProjectDiscussion from './ProjectDiscussion/ProjectDiscussion';
 
 const Batches = () => {
-    const [activeView, setActiveView] = useState('list');
-    const [selectedBatch, setSelectedBatch] = useState(null);
 
-    if (activeView === 'assignFaculty' && selectedBatch) {
-        return (
-            <AssignFaculty
-                batch={selectedBatch}
-                onBack={() => {
-                    setSelectedBatch(null);
-                    setActiveView('list');
-                }}
-            />
-        );
-    }
-
-    if (activeView === 'projectDiscussion' && selectedBatch) {
-        return (
-            <ProjectDiscussion
-                batch={selectedBatch}
-                onBack={() => {
-                    setSelectedBatch(null);
-                    setActiveView('list');
-                }}
-            />
-        );
-    }
+    const navigate = useNavigate();
 
     const batches = [
         { id: 1, batchId: 'BAT-2026-0001', category: 'Course', batchType: 'Individual', memberCount: 1, students: 'Akhil N', status: 'Active' },
@@ -42,6 +18,7 @@ const Batches = () => {
 
     return (
         <div className="batPage">
+
             {/* Header Section */}
             <div className="batHeader">
                 <div>
@@ -110,24 +87,12 @@ const Batches = () => {
                                     <button type="button" className="batOutlineBtn">
                                         View
                                     </button>
-                                    <button
-                                        type="button"
-                                        className="batOutlineBtn"
-                                        onClick={() => {
-                                            setSelectedBatch(row);
-                                            setActiveView('assignFaculty');
-                                        }}
-                                    >
+
+                                    <button type="button" className="batOutlineBtn" onClick={() => navigate('/admin/assignfaculty')}>
                                         Assign Faculty
                                     </button>
-                                    <button
-                                        type="button"
-                                        className="batPrimaryBtn"
-                                        onClick={() => {
-                                            setSelectedBatch(row);
-                                            setActiveView('projectDiscussion');
-                                        }}
-                                    >
+
+                                    <button type="button" className="batPrimaryBtn" onClick={() => navigate('/admin/projectdiscussion')} >
                                         Project Discussion
                                     </button>
                                 </td>

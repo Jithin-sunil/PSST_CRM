@@ -13,11 +13,7 @@ const Universities = () => {
                     <p>Manage records and associated workflows.</p>
                 </div>
 
-                <button
-                    type="button"
-                    className="uniAddBtn"
-                    onClick={() => setShowForm(true)}
-                >
+                <button type="button" className="uniAddBtn" onClick={() => setShowForm(true)} >
                     + Add New
                 </button>
             </div>
@@ -52,11 +48,7 @@ const Universities = () => {
             <div className="uniListCard">
                 <div className="uniListHeader">
                     <h3>Universities List</h3>
-                    <input
-                        type="text"
-                        className="uniSearchInput"
-                        placeholder="Search universities..."
-                    />
+                    <input type="text" className="uniSearchInput" placeholder="Search universities..." />
                 </div>
 
                 <table className="uniTable">

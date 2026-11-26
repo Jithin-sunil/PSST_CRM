@@ -17,6 +17,11 @@ import Enquiries from '../Admin/Pages/StudentLifecycle/Enquiries/Enquiries'
 import Admissions from '../Admin/Pages/StudentLifecycle/Admissions/Admissions'
 import Batches from '../Admin/Pages/StudentLifecycle/Batches/Batches'
 import DailyLog from '../Admin/Pages/StudentLifecycle/DailyLog/DailyLog'
+import AssignFaculty from '../Admin/Pages/Academic_Setup/AssignFaculty/AssignFaculty'
+import ProjectDiscussion from '../Admin/Pages/StudentLifecycle/ProjectDiscussion/ProjectDiscussion'
+import Backlog from '../Admin/Pages/StudentLifecycle/Backlog/Backlog'
+import Sprint from '../Admin/Pages/StudentLifecycle/Sprint/Sprint'
+import DailyTask from '../Admin/Pages/StudentLifecycle/DailyTask/DailyTask'
 
 const AdminRoute = () => {
     return (
@@ -41,13 +46,23 @@ z
                 {/* access & staff */}
                 <Route path="users" element={<Users />} />
                 <Route path="roles" element={<Roles />} />
-                <Route path="role-mapping" element={<RoleMapping/>} />
+                <Route path="rolemapping" element={<RoleMapping/>} />
 
                 {/* student lifecycle */}
                 <Route path="enquiries" element={<Enquiries/>} />
                 <Route path="admissions" element={<Admissions/>} />
                 <Route path="batches" element={<Batches/>} />
                 <Route path="dailylog" element={<DailyLog/>} />
+
+                {/* batch */}
+                <Route path="assignFaculty" element={<AssignFaculty/>} />
+                <Route path="projectdiscussion" element={<ProjectDiscussion/>} />
+                        
+                {/* Project Discussion */}
+                <Route path="backlog" element={<Backlog/>} />
+                <Route path="sprint" element={<Sprint/>} />
+                <Route path="dailytask" element={<DailyTask/>} />
+                
 
             </Routes>
         </div>

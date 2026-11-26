@@ -1,0 +1,239 @@
+.dtPage {
+    padding: 24px 32px;
+    background-color: #f4f7fb;
+    min-height: 100vh;
+    color: #1e293b;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.dtBreadcrumb {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.dtHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.dtHeader h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.dtHeader p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.dtBackBar {
+    margin-bottom: 16px;
+}
+
+.dtInfoCard {
+    background-color: #f8fafd;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 18px;
+}
+
+.dtInfoCard strong {
+    color: #0f172a;
+}
+
+.dtFormCard,
+.dtListCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.dtRequiredNote {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0 0 16px;
+}
+
+.dtFormGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+}
+
+.dtFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dtFullWidth {
+    grid-column: 1 / -1;
+}
+
+.dtFormGroup label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.dtFormGroup input,
+.dtFormGroup select,
+.dtFormGroup textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: #1e293b;
+    background-color: #ffffff;
+    font-family: inherit;
+}
+
+.dtFormActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dtOutlineBtn {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dtOutlineBtn:hover {
+    background-color: #f8fafc;
+}
+
+.dtSmallBtn {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.dtSaveBtn,
+.dtAddBtn {
+    background-color: #2557d6;
+    border: none;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dtSaveBtn:hover,
+.dtAddBtn:hover {
+    background-color: #1d46b3;
+}
+
+.dtListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.dtListLeft {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dtListLeft h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.dtSearchInput,
+.dtFilterSelect {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: #334155;
+    background-color: #ffffff;
+}
+
+.dtTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.dtTable thead {
+    background-color: #eef3fb;
+    color: #475569;
+}
+
+.dtTable th,
+.dtTable td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dtStatusBadge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.dtStatusProgress {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.dtActionBtns {
+    display: flex;
+    gap: 8px;
+}
+
+.dtFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.dtPagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dtPageBtn {
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #94a3b8;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: not-allowed;
+}

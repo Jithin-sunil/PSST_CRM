@@ -164,35 +164,17 @@ const Admissions = () => {
                         <label>Education Type</label>
                         <div className="admRadioBox">
                             <label className="admRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="College"
-                                    checked={educationType === 'College'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="College" checked={educationType === 'College'} onChange={(e) => setEducationType(e.target.value)}/>
                                 College
                             </label>
 
                             <label className="admRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="School"
-                                    checked={educationType === 'School'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="School" checked={educationType === 'School'} onChange={(e) => setEducationType(e.target.value)}/>
                                 School
                             </label>
 
                             <label className="admRadioLabel">
-                                <input
-                                    type="radio"
-                                    name="educationType"
-                                    value="Other"
-                                    checked={educationType === 'Other'}
-                                    onChange={(e) => setEducationType(e.target.value)}
-                                />
+                                <input type="radio" name="educationType" value="Other" checked={educationType === 'Other'} onChange={(e) => setEducationType(e.target.value)}/>
                                 Other
                             </label>
                         </div>

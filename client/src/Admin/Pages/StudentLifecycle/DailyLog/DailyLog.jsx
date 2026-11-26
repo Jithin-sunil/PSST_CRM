@@ -112,11 +112,7 @@ const DailyLog = () => {
 
                         <div className="dlgFormGroup">
                             <label>Student Name *</label>
-                            <select
-                                value={selectedStudent}
-                                onChange={handleStudentChange}
-                                required
-                            >
+                            <select value={selectedStudent} onChange={handleStudentChange} required>
                                 <option value="">Choose Student Name</option>
                                 {Object.keys(STUDENT_BATCH_MAP).map((student) => (
                                     <option key={student} value={student}>
@@ -128,12 +124,7 @@ const DailyLog = () => {
 
                         <div className="dlgFormGroup">
                             <label>Batch Code</label>
-                            <input
-                                type="text"
-                                value={batchCode}
-                                onChange={(e) => setBatchCode(e.target.value)}
-                                readOnly
-                            />
+                            <input type="text" value={batchCode} onChange={(e) => setBatchCode(e.target.value)} readOnly/>
                         </div>
 
                         <div className="dlgFormGroup">
@@ -155,12 +146,7 @@ const DailyLog = () => {
                     <div className="dlgFormGrid">
                         <div className="dlgFormGroup">
                             <label>Progress (%)</label>
-                            <input
-                                type="number"
-                                min="0"
-                                max="100"
-                                placeholder="Progress (%)"
-                            />
+                            <input type="number" min="0" max="100" placeholder="Progress (%)"/>
                         </div>
                     </div>
 
@@ -172,11 +158,7 @@ const DailyLog = () => {
                         <button type="reset" className="dlgOutlineBtn">
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="dlgOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="dlgOutlineBtn" onClick={() => setShowForm(false)}>
                             Cancel
                         </button>
                         <button type="button" className="dlgSaveBtn">
@@ -192,24 +174,12 @@ const DailyLog = () => {
                     <div className="dlgListLeft">
                         <h3>Daily Log List</h3>
 
-                        <input
-                            type="text"
-                            className="dlgSearchInput"
-                            placeholder="Search daily log..."
-                        />
+                        <input type="text" className="dlgSearchInput" placeholder="Search daily log..."/>
 
-                        <input
-                            type="date"
-                            className="dlgDateFilter"
-                            defaultValue="2026-11-25"
-                        />
+                        <input type="date" className="dlgDateFilter" defaultValue="2026-11-25"/>
                     </div>
 
-                    <button
-                        type="button"
-                        className="dlgSaveBtn"
-                        onClick={() => setShowForm(true)}
-                    >
+                    <button type="button" className="dlgSaveBtn" onClick={() => setShowForm(true)}>
                         + Add New
                     </button>
                 </div>

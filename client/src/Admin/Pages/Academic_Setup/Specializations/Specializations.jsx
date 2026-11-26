@@ -48,11 +48,7 @@ const Specializations = () => {
                         <button type="button" className="specOutlineBtn">
                             Reset
                         </button>
-                        <button
-                            type="button"
-                            className="specOutlineBtn"
-                            onClick={() => setShowForm(false)}
-                        >
+                        <button type="button" className="specOutlineBtn" onClick={() => setShowForm(false)} >
                             Cancel
                         </button>
                         <button type="button" className="specSaveBtn">
@@ -67,11 +63,7 @@ const Specializations = () => {
                 <div className="specListHeader">
                     <h3>Specializations List</h3>
 
-                    <input
-                        type="text"
-                        className="specSearchInput"
-                        placeholder="Search specializations..."
-                    />
+                    <input type="text" className="specSearchInput" placeholder="Search specializations..." />
 
                     <select className="specFilterSelect" defaultValue="">
                         <option value="">All Programme</option>
