@@ -1,4 +1,5 @@
 from django.db import models
+# from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class tbl_academicyear(models.Model):
@@ -45,7 +46,6 @@ class tbl_user(models.Model):
 class tbl_role(models.Model):
     role_name = models.CharField(max_length=100)
 
-
 class tbl_screen(models.Model):
     screen_code = models.CharField(max_length=100)
     screen_name = models.CharField(max_length=150)
@@ -88,3 +88,14 @@ class tbl_enquiryfollowup(models.Model):
     enquiryfollowup_nextdate = models.DateField()
     enquiryfollowup_details = models.TextField()
     enquiryfollowup_status = models.IntegerField(default=0)
+
+
+class tbl_fees(models.Model):
+    fee_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    category = models.ForeignKey(tbl_category, on_delete=models.CASCADE)
+    financial_year = models.ForeignKey(tbl_financialyear, on_delete=models.CASCADE)
+    technology = models.ForeignKey(tbl_technology, on_delete=models.CASCADE)
+    program = models.ForeignKey(tbl_program, on_delete=models.CASCADE)
+
+
+

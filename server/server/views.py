@@ -2,9 +2,9 @@ from django.http import JsonResponse
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def home(request):
     return JsonResponse({'msg':"Welcome to HomePage"})
-
 
 @csrf_exempt
 def academic_year(request):
@@ -44,6 +44,7 @@ def academic_year(request):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 @csrf_exempt
+
 def delete_academic_year(request, academic_year_id):
     if request.method == 'DELETE':
         try:
@@ -55,8 +56,8 @@ def delete_academic_year(request, academic_year_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
 @csrf_exempt
+
 def update_academic_year(request, academic_year_id):
     if request.method == 'POST':
         try:
@@ -80,6 +81,7 @@ def update_academic_year(request, academic_year_id):
 
 
 @csrf_exempt
+
 def financial_year(request):
     if request.method == 'POST':
         from_date = request.POST.get('fromDate')
@@ -116,6 +118,7 @@ def financial_year(request):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 @csrf_exempt
+
 def delete_financial_year(request, financial_year_id):
     if request.method == 'DELETE':
         try:
@@ -127,8 +130,8 @@ def delete_financial_year(request, financial_year_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
 @csrf_exempt
+
 def update_financial_year(request, financial_year_id):
     if request.method == 'POST':
         try:
@@ -149,7 +152,6 @@ def update_financial_year(request, financial_year_id):
             return JsonResponse({'error': 'Financial year not found'}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
-
 
 @csrf_exempt
 def university(request):
@@ -180,6 +182,7 @@ def university(request):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 @csrf_exempt
+
 def delete_university(request, university_id):
     if request.method == 'DELETE':
         try:
@@ -192,6 +195,7 @@ def delete_university(request, university_id):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 @csrf_exempt
+
 def update_university(request, university_id):
     if request.method == 'POST':
         try:
@@ -210,7 +214,6 @@ def update_university(request, university_id):
             return JsonResponse({'error': 'University not found'}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
-
 
 @csrf_exempt
 def users(request):
@@ -245,8 +248,8 @@ def users(request):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
-
 @csrf_exempt
+
 def delete_user(request, user_id):
     if request.method == 'DELETE':
         try:
@@ -259,6 +262,7 @@ def delete_user(request, user_id):
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 @csrf_exempt
+
 def update_user(request, user_id):
     if request.method == 'POST':
         try:
@@ -286,6 +290,149 @@ def update_user(request, user_id):
             return JsonResponse({'error': 'User not found'}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+
+def fees(request):
+    if request.method == 'POST':
+        fee_amount = request.POST.get('feeAmount')
+        category_id = tbl_category.objects.get(id=request.POST.get('categoryId'))
+        financial_year_id = tbl_financialyear.objects.get(id=request.POST.get('financialYearId'))
+        technology_id = tbl_technology.objects.get(id=request.POST.get('technologyId'))
+        program_id = tbl_program.objects.get(id=request.POST.get('programId'))
+
+        # Create a new fee record
+        fee_record = tbl_fees.objects.create(
+            fee_amount=fee_amount,
+            category=category_id,
+            financial_year=financial_year_id,
+            technology=technology_id,
+            program=program_id,
+        )
+        return JsonResponse({'msg': 'Fee created successfully'}, status=201)
+    if request.method == 'GET':
+        fees_data = list(
+            tbl_fees.objects
+            .values('id', 'fee_amount', 'category_id', 'financial_year_id', 'technology_id', 'program_id')
+            .order_by('id')
+        )
+        return JsonResponse({'feesData': fees_data})
+
+@csrf_exempt
+
+def delete_fee(request, fee_id):
+    if request.method == 'DELETE':
+        try:
+            fee_record = tbl_fees.objects.get(id=fee_id)
+            fee_record.delete()
+            return JsonResponse({'msg': 'Fee deleted successfully'}, status=200)
+        except tbl_fees.DoesNotExist:
+            return JsonResponse({'error': 'Fee not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+
+def update_fee(request, fee_id):
+    if request.method == 'POST':
+        try:
+            fee_record = tbl_fees.objects.get(id=fee_id)
+            fee_amount = request.POST.get('feeAmount')
+            category_id = tbl_category.objects.get(id=request.POST.get('categoryId'))
+            financial_year_id = tbl_financialyear.objects.get(id=request.POST.get('financialYearId'))
+            technology_id = tbl_technology.objects.get(id=request.POST.get('technologyId'))
+            program_id = tbl_program.objects.get(id=request.POST.get('programId'))
+
+            # Update the fee record
+            fee_record.fee_amount = fee_amount
+            fee_record.category_id = category_id
+            fee_record.financial_year_id = financial_year_id
+            fee_record.technology_id = technology_id
+            fee_record.program_id = program_id
+            fee_record.save()
+
+            return JsonResponse({'msg': 'Fee updated successfully'}, status=200)
+        except tbl_fees.DoesNotExist:
+            return JsonResponse({'error': 'Fee not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)    
+
+@csrf_exempt
+
+def college(request):
+    if request.method == 'POST':
+        college_name = request.POST.get('collegeName')
+        university_id = tbl_university.objects.get(id=request.POST.get('universityId'))
+        college_address = request.POST.get('collegeAddress')
+        college_isautonomous = request.POST.get('collegeIsAutonomous') == 'true'
+
+        # Check for unique constraint
+        if tbl_college.objects.filter(college_name=college_name).exists():
+            return JsonResponse({'error': 'College name already exists'}, status=400)
+
+        # Create a new college record
+        college_record = tbl_college.objects.create(
+            college_name=college_name,
+            university=university_id,
+            college_address=college_address,
+            college_isautonomous=college_isautonomous,
+        )
+        return JsonResponse({'msg': 'College created successfully'}, status=201)
+
+    if request.method == 'GET':
+        colleges_data = list(
+            tbl_college.objects
+            .values('id', 'college_name', 'university_id', 'college_address', 'college_isautonomous')
+            .order_by('college_name')
+        )
+        return JsonResponse({'collegesData': colleges_data})
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+
+
+def delete_college(request, college_id):
+    if request.method == 'DELETE':
+        try:
+            college_record = tbl_college.objects.get(id=college_id)
+            college_record.delete()
+            return JsonResponse({'msg': 'College deleted successfully'}, status=200)
+        except tbl_college.DoesNotExist:
+            return JsonResponse({'error': 'College not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+
+def update_college(request, college_id):
+    if request.method == 'POST':
+        try:
+            college_record = tbl_college.objects.get(id=college_id)
+            college_name = request.POST.get('collegeName')
+            university_id = tbl_university.objects.get(id=request.POST.get('universityId'))
+            college_address = request.POST.get('collegeAddress')
+            college_isautonomous = request.POST.get('collegeIsAutonomous') == 'true'
+
+            # Check for unique constraint
+            if tbl_college.objects.filter(college_name=college_name).exclude(id=college_id).exists():
+                return JsonResponse({'error': 'College name already exists'}, status=400)
+
+            # Update the college record
+            college_record.college_name = college_name
+            college_record.university_id = university_id
+            college_record.college_address = college_address
+            college_record.college_isautonomous = college_isautonomous
+            college_record.save()
+
+            return JsonResponse({'msg': 'College updated successfully'}, status=200)
+        except tbl_college.DoesNotExist:
+            return JsonResponse({'error': 'College not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
 
 
 @csrf_exempt

@@ -17,6 +17,10 @@ urlpatterns = [
     path('universityupdate/<int:university_id>/', views.update_university),
     path('universitydelete/<int:university_id>/', views.delete_university),
 
+    path('college/', views.college),
+    path('collegeupdate/<int:college_id>/', views.update_college),  
+    path('collegedelete/<int:college_id>/', views.delete_college),
+
     path('users/', views.users),
     path('usersupdate/<int:user_id>/', views.update_user),
     path('usersdelete/<int:user_id>/', views.delete_user),
@@ -57,7 +61,10 @@ urlpatterns = [
 
 
 
-    
+    path('fees/', views.fees),
+    path('feesupdate/<int:fee_id>/', views.update_fee),
+    path('feesdelete/<int:fee_id>/', views.delete_fee),
+
 
 
 ]
