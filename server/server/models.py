@@ -44,3 +44,47 @@ class tbl_user(models.Model):
 
 class tbl_role(models.Model):
     role_name = models.CharField(max_length=100)
+
+
+class tbl_screen(models.Model):
+    screen_code = models.CharField(max_length=100)
+    screen_name = models.CharField(max_length=150)
+    screen_module = models.CharField(max_length=100)
+
+
+class tbl_userrole(models.Model):
+    user = models.ForeignKey(tbl_user, on_delete=models.CASCADE)
+    role = models.ForeignKey(tbl_role, on_delete=models.CASCADE)
+
+
+class tbl_rolescreen(models.Model):
+    role = models.ForeignKey(tbl_role, on_delete=models.CASCADE)
+    screen = models.ForeignKey(tbl_screen, on_delete=models.CASCADE)
+
+
+class tbl_userscreen(models.Model):
+    user = models.ForeignKey(tbl_user, on_delete=models.CASCADE)
+    screen = models.ForeignKey(tbl_screen, on_delete=models.CASCADE)
+
+
+class tbl_enquiry(models.Model):
+    enquiry_date  = models.DateField()
+    enquiry_studentname = models.CharField(max_length=150)
+    enquiry_mobile = models.CharField(max_length=20)
+    enquiry_address = models.TextField()
+    enquiry_details = models.TextField()
+    enquiry_educationtype = models.CharField(max_length=100)
+    enquiry_schoolname = models.CharField(max_length=150)
+    enquiry_status=models.CharField(max_length=100,default='open')
+    category = models.ForeignKey(tbl_category, on_delete=models.CASCADE)
+    college = models.ForeignKey(tbl_college, on_delete=models.CASCADE)
+    programme = models.ForeignKey(tbl_program, on_delete=models.CASCADE)
+    specialization = models.ForeignKey(tbl_specialization, on_delete=models.CASCADE)
+
+
+class tbl_enquiryfollowup(models.Model):
+    enquiry = models.ForeignKey(tbl_enquiry, on_delete=models.CASCADE)
+    enquiryfollowup_date = models.DateField()
+    enquiryfollowup_nextdate = models.DateField()
+    enquiryfollowup_details = models.TextField()
+    enquiryfollowup_status = models.IntegerField(default=0)

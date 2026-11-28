@@ -25,6 +25,11 @@ urlpatterns = [
     path('rolesupdate/<int:role_id>/', views.update_role),
     path('rolesdelete/<int:role_id>/', views.delete_role),
 
+
+    path('screens/', views.screens),
+    path('role-screens/<int:role_id>/', views.role_screens),
+
+    
     path('programme/', views.programme),
     path('programmedelete/<int:programme_id>/', views.delete_programme),
     path('programmeupdate/<int:programme_id>/', views.update_programme),
@@ -41,6 +46,18 @@ urlpatterns = [
     path('technologydelete/<int:technology_id>/', views.delete_technology),
     path('technologyupdate/<int:technology_id>/', views.update_technology),
 
+    path('enquiry/', views.enquiry),
+    path('enquiryupdate/<int:enquiry_id>/', views.update_enquiry),
+    path('enquirydelete/<int:enquiry_id>/', views.delete_enquiry),
+
+
+    path('enquiryfollowup/<int:enquiry_id>/', views.enquiryfollowup),
+    path('enquiryfollowupupdate/<int:enquiryfollowup_id>/', views.update_enquiryfollowup),
+    path('enquiryfollowupdelete/<int:enquiryfollowup_id>/', views.delete_enquiryfollowup),
+
+
+
     
+
 
 ]

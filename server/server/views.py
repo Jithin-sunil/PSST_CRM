@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import tbl_academicyear, tbl_financialyear, tbl_university, tbl_user,tbl_role, tbl_program,tbl_specialization,tbl_category,tbl_technology
+from .models import *
 from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
@@ -355,6 +355,90 @@ def delete_role(request, role_id):
 
 
 
+@csrf_exempt
+def screens(request):
+
+    if request.method == 'POST':
+
+        screen_code = request.POST.get('screenCode', '').strip().upper()
+        screen_name = request.POST.get('screenName', '').strip()
+        screen_module = request.POST.get('screenModule', '').strip()
+
+        if not screen_code or not screen_name or not screen_module:
+            return JsonResponse({
+                'error': 'All fields are required'
+            }, status=400)
+
+        if tbl_screen.objects.filter(screen_code__iexact=screen_code).exists():
+            return JsonResponse({
+                'error': 'Screen code already exists'
+            }, status=400)
+
+        tbl_screen.objects.create(
+            screen_code=screen_code,
+            screen_name=screen_name,
+            screen_module=screen_module
+        )
+
+        return JsonResponse({
+            'msg': 'Screen registered successfully'
+        }, status=201)
+
+    if request.method == 'GET':
+
+        screens_data = list(
+            tbl_screen.objects
+            .values('id', 'screen_code', 'screen_name', 'screen_module')
+            .order_by('screen_module', 'screen_name')
+        )
+
+        return JsonResponse({
+            'screensData': screens_data
+        })
+
+    return JsonResponse({
+        'error': 'Method not allowed'
+    }, status=405)
+
+
+
+@csrf_exempt
+def role_screens(request, role_id):
+
+    if request.method == 'GET':
+
+        try:
+            role = tbl_role.objects.get(id=role_id)
+
+        except tbl_role.DoesNotExist:
+            return JsonResponse({
+                'error': 'Role not found'
+            }, status=404)
+
+        screens_data = list(
+            tbl_rolescreen.objects
+            .filter(role=role)
+            .values(
+                'screen__id',
+                'screen__screen_code',
+                'screen__screen_name',
+                'screen__screen_module'
+            )
+            .order_by('screen__screen_module', 'screen__screen_name')
+        )
+
+        return JsonResponse({
+            'roleId': role.id,
+            'roleName': role.role_name,
+            'screensData': screens_data
+        })
+
+    return JsonResponse({
+        'error': 'Method not allowed'
+    }, status=405)
+
+
+
 # PROGRAMME
 
 @csrf_exempt
@@ -601,3 +685,215 @@ def update_technology(request, technology_id):
             return JsonResponse({'error': 'Technology not found',}, status=404)
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+
+
+
+#enquiry
+@csrf_exempt
+def enquiry(request):
+
+    if request.method == 'POST':
+        enquiry_date=request.POST.get("enquiryDate")
+        student_name = request.POST.get('studentName')
+        student_mobile = request.POST.get('studentMobile')
+        student_address = request.POST.get('studentAddress')
+        enquiry_details = request.POST.get('enquiryDetails')
+        enquiry_educationtype = request.POST.get('educationType')
+        enquiry_schoolname = request.POST.get('schoolName')
+        category_id = tbl_category.objects.get(id=request.POST.get('categoryId'))
+        college_id = tbl_college.objects.get(id=request.POST.get('collegeId'))
+        programme_id = tbl_program.objects.get(id=request.POST.get('programmeId'))
+        specialization_id = tbl_specialization.objects.get(id=request.POST.get('specializationId'))
+        enquiry_data_exists = tbl_enquiry.objects.filter(
+            enquiry_studentname=student_name,
+            enquiry_mobile=student_mobile,
+            enquiry_details=enquiry_details
+        ).exists()
+
+        if enquiry_data_exists:
+            return JsonResponse(
+                {'error': 'Enquiry already exists'},
+                status=400
+            )
+
+        tbl_enquiry.objects.create(
+            enquiry_date=enquiry_date,
+            enquiry_studentname=student_name,
+            enquiry_mobile=student_mobile,
+            enquiry_address=student_address,
+            enquiry_details=enquiry_details,
+            enquiry_educationtype=enquiry_educationtype,
+            enquiry_schoolname=enquiry_schoolname,
+            category=category_id,
+            college=college_id,
+            programme=programme_id,
+            specialization=specialization_id
+        )
+
+        return JsonResponse(
+            {'message': 'Enquiry added successfully'},
+            status=201
+        )
+
+    if request.method == 'GET':
+
+        enquiry_data = list(
+            tbl_enquiry.objects
+            .values(
+                'id',
+                'enquiry_date',
+                'enquiry_studentname',
+                'enquiry_mobile',
+                'enquiry_address',
+                'enquiry_details',
+                'enquiry_educationtype',
+                'enquiry_schoolname',
+                'enquiry_status',
+                'category_id',
+                'college_id',
+                'programme_id',
+                'specialization_id'
+            )
+            .order_by('-id')
+        )
+
+        return JsonResponse(
+            {'enquiryData': enquiry_data}
+        )
+
+    return JsonResponse(
+        {'error': 'Method not allowed'},
+        status=405
+    )
+
+@csrf_exempt
+def update_enquiry(request, enquiry_id):
+    if request.method == 'POST':
+        try:
+            enquiry_record = tbl_enquiry.objects.get(id=enquiry_id)
+
+            enquiry_record.enquiry_date = request.POST.get("enquiryDate")
+            enquiry_record.enquiry_studentname = request.POST.get('studentName')
+            enquiry_record.enquiry_mobile = request.POST.get('studentMobile')
+            enquiry_record.enquiry_address = request.POST.get('studentAddress')
+            enquiry_record.enquiry_details = request.POST.get('enquiryDetails')
+            enquiry_record.enquiry_educationtype = request.POST.get('educationType')
+            enquiry_record.enquiry_schoolname = request.POST.get('schoolName')
+            enquiry_record.category = tbl_category.objects.get(id=request.POST.get('categoryId'))
+            enquiry_record.college = tbl_college.objects.get(id=request.POST.get('collegeId'))
+            enquiry_record.programme = tbl_program.objects.get(id=request.POST.get('programmeId'))
+            enquiry_record.specialization = tbl_specialization.objects.get(id=request.POST.get('specializationId'))
+
+            enquiry_record.save()
+
+            return JsonResponse({'message': 'Enquiry updated successfully'}, status=200)
+
+        except tbl_enquiry.DoesNotExist:
+            return JsonResponse({'error': 'Enquiry not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def delete_enquiry(request, enquiry_id):
+    if request.method == 'DELETE':
+        try:
+            enquiry_record = tbl_enquiry.objects.get(id=enquiry_id)
+            enquiry_record.delete()
+            return JsonResponse({'message': 'Enquiry deleted successfully'}, status=200)
+
+        except tbl_enquiry.DoesNotExist:
+            return JsonResponse({'error': 'Enquiry not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+
+@csrf_exempt
+def enquiryfollowup(request, enquiry_id):
+    if request.method == 'POST':
+        enquiry_id = tbl_enquiry.objects.get(id=enquiry_id)
+        enquiryfollowup_date = request.POST.get('enquiryFollowupDate')
+        enquiryfollowup_nextdate = request.POST.get('enquiryFollowupNextDate')
+        enquiryfollowup_details = request.POST.get('enquiryFollowupDetails')
+        enquiry_followup_exists = tbl_enquiryfollowup.objects.filter(
+            enquiry=enquiry_id,
+            enquiryfollowup_date=enquiryfollowup_date,
+            enquiryfollowup_details=enquiryfollowup_details
+        ).exists()
+
+        if enquiry_followup_exists:
+            return JsonResponse(
+                {'error': 'Enquiry follow-up already exists'},
+                status=400
+            )
+
+        tbl_enquiryfollowup.objects.create(
+            enquiry=enquiry_id,
+            enquiryfollowup_date=enquiryfollowup_date,
+            enquiryfollowup_details=enquiryfollowup_details,
+            enquiryfollowup_nextdate=enquiryfollowup_nextdate
+        )
+
+        return JsonResponse(
+            {'message': 'Enquiry follow-up added successfully'},
+            status=201
+        )
+    if request.method == 'GET':
+        enquiry_followup_data = list(
+            tbl_enquiryfollowup.objects
+            .values(
+                'id',
+                'enquiry',
+                'enquiryfollowup_date',
+                'enquiryfollowup_details',
+                'enquiryfollowup_nextdate'
+            )
+            .order_by('-id')
+        )
+
+        return JsonResponse(
+            {'enquiryFollowupData': enquiry_followup_data}
+        )
+
+    return JsonResponse(
+        {'error': 'Method not allowed'},
+        status=405
+    )
+
+
+@csrf_exempt
+def update_enquiryfollowup(request, enquiryfollowup_id):
+    if request.method == 'POST':
+        try:
+            enquiry_followup_record = tbl_enquiryfollowup.objects.get(id=enquiryfollowup_id)
+
+            enquiry_followup_record.enquiry_id = tbl_enquiry.objects.get(id=request.POST.get('enquiryId'))
+            enquiry_followup_record.enquiryfollowup_date = request.POST.get('enquiryFollowupDate')
+            enquiry_followup_record.enquiryfollowup_details = request.POST.get('enquiryFollowupDetails')
+            enquiry_followup_record.enquiryfollowup_status = request.POST.get('enquiryFollowupStatus')
+
+            enquiry_followup_record.save()
+
+            return JsonResponse({'message': 'Enquiry follow-up updated successfully'}, status=200)
+
+        except tbl_enquiryfollowup.DoesNotExist:
+            return JsonResponse({'error': 'Enquiry follow-up not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+def delete_enquiryfollowup(request, enquiryfollowup_id):
+    if request.method == 'DELETE':
+        try:
+            enquiry_followup_record = tbl_enquiryfollowup.objects.get(id=enquiryfollowup_id)
+            enquiry_followup_record.delete()
+            return JsonResponse({'message': 'Enquiry follow-up deleted successfully'}, status=200)
+
+        except tbl_enquiryfollowup.DoesNotExist:
+            return JsonResponse({'error': 'Enquiry follow-up not found'}, status=404)
+
+    return JsonResponse({'error': 'Method not allowed'}, status=405)
+
